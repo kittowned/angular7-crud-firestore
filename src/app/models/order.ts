@@ -1,2 +1,2 @@
-export class Order {
+export interface Order {
 }
