@@ -1,0 +1,43 @@
+
+<div>
+  <input type="text">
+</div>
+<div>
+  <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+  <button class="btn btn-primary">Delete</button>
+</div>
+<div>
+    <table>
+        <thead>
+          <tr>
+              <th>Product</th>
+              <th>Unit type</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let p of products">
+            <tr (click)="showHide(p.id)">
+              <td>{{ p.name }}</td>
+              <td>{{ p.unit }}</td>
+              <td>{{ p.price | currency:'USD':'symbol' }}</td>
+              <td>
+                <a href="#" (click)="updateProduct()">Edit</a>
+              </td>
+            </tr>
+            <ng-container>
+              <tr *ngIf="p.name === productToggle.name && productToggle.bool">
+                  <td><div >{{p.id}}</div></td>
+                  <td><div >{{p.name}}</div></td>
+                  <td><div >{{p.price}}</div></td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+</div>
+<div>
+  <p></p>
+</div>
+
