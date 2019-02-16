@@ -11,8 +11,8 @@ export class ProductService {
   products: Observable<DocumentChangeAction<Product>[]>
 
   constructor(private db: AngularFirestore){
-      this.productsCollection = db.collection<Product>('products');
-      this.products = this.productsCollection.snapshotChanges();
+      this.productsCollection = db.collection<Product>('products'); // Create reference to collection
+      this.products = this.productsCollection.snapshotChanges(); // Get DocumentChangeAction observable.
   }
 
   getAll(){
@@ -45,7 +45,6 @@ export class ProductService {
     } catch (e) {
       console.error('Error removing document: ', e);
     }
-    
   }
 
   updateProduct() {

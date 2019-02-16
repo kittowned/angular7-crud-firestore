@@ -1,0 +1,63 @@
+<div>
+    <input type="text">
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="addProduct()">Add</button>
+    <button class="btn btn-primary">Delete</button>
+  </div>
+  <div>
+      <table class="table table-hover">
+          <thead>
+            <tr>
+                <th scope="col">Customer</th>
+                <th scope="col">Order#</th>
+                <th scope="col">Pick up on</th>
+                <th scope="col">Price</th>
+              </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let o of orders">
+              <tr *ngIf="o.customer" (click)="showHide(o.id)">
+                <td scope="row">{{ o.customer.name }}</td>
+                <td>{{ o.order_number }}</td>
+                <td>{{ o.pickUpOn }}</td>
+                <td>{{ o.price | currency:'USD':'symbol' }}</td>
+              </tr>
+              
+                <tr *ngIf="o.id === orderToggle.id && orderToggle.bool" >
+                  <td colspan="4"> 
+                  <!-- need to figure out how to reset child-table class -->
+                    <table class="container-fluid " id="table-revert">
+                      <thead>
+                        <tr >
+                          <th>Desserts</th>
+                          <th>Quantity</th>
+                          <th>Date</th>
+                          <th>Phone</th>
+                          <th>Address</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngIf="o">
+                          <td><div *ngFor="let item of o.items">{{ item.name }}</div></td>
+                          <td><div *ngFor="let item of o.items">{{ item.quantity }}</div></td>
+                          <td>{{ o.pickUpOn }}</td>
+                          <td>{{ o.customer.phone }}</td>
+                          <td>{{ o.customer.address }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              
+            </ng-container>
+          </tbody>
+        </table>
+  </div>
+  <div>
+    <p></p>
+  </div>
+  
+<!-- implement adding , deleting and editing an order -->
+<!-- add sorting to parent tables -->
+<!-- consider using bootstrap grid instead of child table -->

@@ -1,0 +1,15 @@
+<ng-container *ngFor="let i of items">
+    <tr *ngIf="i.customer" (click)="showHide(i.id)">
+        <td>{{ i.customer.name }}</td>
+        <td>{{ i.order_number }}</td>
+        <td>{{ i.pickUpOn }}</td>
+        <td>{{ i.price | currency:'USD':'symbol' }}</td>
+    </tr>
+    <ng-container>
+        <tr *ngIf="i.id === orderToggle.id && orderToggle.bool" >
+            <td><div >{{i.customer.address}}</div></td>
+            <td><div >{{i.items | json}}</div></td>
+            <td><div >{{i.customer.phone}}</div></td>
+        </tr>
+    </ng-container>
+</ng-container>

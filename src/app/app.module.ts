@@ -9,13 +9,22 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { ProductListComponent } from './product-list/product-list.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { OrderService } from './services/order.service';
+import { ZippyAccordionComponent } from './shared/zippy-accordion/zippy-accordion.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    OrderListComponent,
+    CustomerListComponent,
+    RecipeListComponent,
+    ZippyAccordionComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +33,7 @@ import { ProductListComponent } from './product-list/product-list.component';
   ],
   providers: [
     ProductService,
+    OrderService,
     AngularFirestore
   ],
   bootstrap: [AppComponent]
