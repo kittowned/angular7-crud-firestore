@@ -1,2 +1,14 @@
-<!-- <app-product-list></app-product-list> -->
-<app-order-list></app-order-list>
+
+<div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
+  <app-sidebar></app-sidebar>
+  <main class="page-content mt-5">
+      <div class="container-fluid mt-5">
+        <div class="row">
+          <div class="col">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
+  </main>
+</div>

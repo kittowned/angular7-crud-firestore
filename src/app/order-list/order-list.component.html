@@ -1,14 +1,7 @@
-<div>
-    <input type="text">
-  </div>
-  <div>
-    <button class="btn btn-primary" (click)="addProduct()">Add</button>
-    <button class="btn btn-primary">Delete</button>
-  </div>
   <div>
       <table class="table table-hover">
           <thead>
-            <tr>
+            <tr class="text-center">
                 <th scope="col">Customer</th>
                 <th scope="col">Order#</th>
                 <th scope="col">Pick up on</th>
@@ -17,39 +10,50 @@
           </thead>
           <tbody>
             <ng-container *ngFor="let o of orders">
-              <tr *ngIf="o.customer" (click)="showHide(o.id)">
+              <tr class="text-center"*ngIf="o.customer" (click)="showHide(o.id)">
                 <td scope="row">{{ o.customer.name }}</td>
                 <td>{{ o.order_number }}</td>
                 <td>{{ o.pickUpOn }}</td>
                 <td>{{ o.price | currency:'USD':'symbol' }}</td>
               </tr>
-              
                 <tr *ngIf="o.id === orderToggle.id && orderToggle.bool" >
                   <td colspan="4"> 
-                  <!-- need to figure out how to reset child-table class -->
-                    <table class="container-fluid " id="table-revert">
-                      <thead>
-                        <tr >
-                          <th>Desserts</th>
-                          <th>Quantity</th>
-                          <th>Date</th>
-                          <th>Phone</th>
-                          <th>Address</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngIf="o">
-                          <td><div *ngFor="let item of o.items">{{ item.name }}</div></td>
-                          <td><div *ngFor="let item of o.items">{{ item.quantity }}</div></td>
-                          <td>{{ o.pickUpOn }}</td>
-                          <td>{{ o.customer.phone }}</td>
-                          <td>{{ o.customer.address }}</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <div class="container-fluid">
+                      <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                          <div class="container text-center">
+                            <div class="font-weight-bold">Desserts</div>
+                            <div class="text-nowrap" *ngFor="let item of o.items">{{ item.name }}</div>
+                          </div>
+                        </div>
+                        <div class="col-md-auto">
+                          <div class="container text-center">
+                              <div class="font-weight-bold"> Quantity</div>
+                            <div class="text-nowrap" *ngFor="let item of o.items">{{ item.quantity }}</div>
+                          </div>
+                        </div>
+                        <div class="col-md-auto">
+                          <div class="container text-center">
+                              <div class="font-weight-bold">Date</div>
+                            <div class="text-nowrap">{{ o.pickUpOn }}</div>
+                          </div>
+                        </div>
+                        <div class="col-md-auto">
+                            <div class="container text-center">
+                                <div class="font-weight-bold">Phone</div>
+                              <div class="text-nowrap">{{ o.customer.phone }}</div>
+                            </div>
+                          </div>
+                          <div class="col-md-auto">
+                              <div class="container text-center">
+                                  <div class="font-weight-bold">Address</div>
+                                <div class="text-nowrap">{{ o.customer.address }}</div>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
-              
             </ng-container>
           </tbody>
         </table>
@@ -60,4 +64,5 @@
   
 <!-- implement adding , deleting and editing an order -->
 <!-- add sorting to parent tables -->
-<!-- consider using bootstrap grid instead of child table -->
+<!-- align dessert names to left --> 
+<!-- add progress bar or spinner when changing between components -->

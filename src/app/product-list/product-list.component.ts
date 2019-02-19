@@ -1,5 +1,6 @@
+import { Subscription } from 'rxjs';
 import { Product } from './../models/product';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -7,16 +8,18 @@ import { ProductService } from '../services/product.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   products: Product[] = [];
 
   productToggle : Product;
 
+  subscription: Subscription;
+
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.productService.getAll().subscribe(data => {
+  this.subscription = this.productService.getAll().subscribe(data => {
       this.products = data.map( e => {
         return {
           id: e.payload.doc.id,
@@ -49,5 +52,7 @@ export class ProductListComponent implements OnInit {
     console.log('taking you to product update page');
   }
 
-  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
