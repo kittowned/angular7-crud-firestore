@@ -38,7 +38,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RecipeListComponent,
     ZippyAccordionComponent,
     SidebarComponent,
-    HoursComponent
+    HoursComponent,
   ],
   imports: [
     BrowserModule,

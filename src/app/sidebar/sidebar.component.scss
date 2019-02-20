@@ -148,6 +148,10 @@
               text-align: center;
               border-radius: 4px;
             }
+
+            span {
+              font-weight: 600;
+            }
           }
         }
       }
@@ -175,107 +179,6 @@
         a .notification {
           position: absolute;
           top: 0;
-        }
-      }
-  
-      .dropdown-menu {
-        bottom: 31px;
-        left: 0 !important;
-        top: initial !important;
-        right: 0 !important;
-        transform: none !important;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        font-size: .9rem;
-      }
-  
-      .messages {
-        .dropdown-item {
-          padding: .25rem 1rem;
-        }
-  
-        .messages-header {
-          padding: 0 1rem;
-        }
-  
-        .message-content {
-          display: flex;
-  
-          .pic {
-            width: 40px;
-            height: 40px;
-            border-radius: 4px;
-            overflow: hidden;
-  
-            img {
-              object-fit: cover;
-              height: 100%;
-            }
-          }
-  
-          .content {
-            line-height: 1.6;
-            padding-left: 5px;
-            width: calc(100% - 40px);
-  
-            .message-title {
-              font-size: 13px;
-            }
-  
-            .message-detail {
-              font-size: 12px;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-  
-          }
-        }
-  
-      }
-  
-      .notifications {
-        .dropdown-item {
-          padding: .25rem 1rem;
-        }
-  
-        .notifications-header {
-          padding: 0 1rem;
-        }
-  
-        .notification-content {
-          display: flex;
-  
-          .icon {
-            width: 40px;
-            height: 40px;
-  
-            i {
-              width: 35px;
-              height: 35px;
-              text-align: center;
-              line-height: 35px;
-              border-radius: 4px;
-            }
-          }
-  
-          .content {
-            line-height: 1.6;
-            padding-left: 5px;
-            width: calc(100% - 40px);
-  
-            .notification-time {
-              font-size: .7rem;
-              color: #828282;
-            }
-  
-            .notification-detail {
-              font-size: 12px;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-          }
         }
       }
     }

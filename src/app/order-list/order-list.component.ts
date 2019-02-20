@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+  styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements OnInit,OnDestroy {
 
@@ -17,9 +17,14 @@ export class OrderListComponent implements OnInit,OnDestroy {
 
   subscription: Subscription;
 
-  constructor( private orderService : OrderService) { }
+  tableTitles = [];
+
+  sortedArray = [];
+
+  constructor( private orderService : OrderService ) { }
 
   ngOnInit() {
+    this.tableTitles = this.orderService.getTableTitles();
     this.subscription = this.orderService.getAll().subscribe(data => {
       this.orders = data.map( e => {
           let full = e.payload.doc.data();
@@ -41,6 +46,13 @@ export class OrderListComponent implements OnInit,OnDestroy {
       this.orderToggle = Object.create(order[0]);
       this.orderToggle.bool = !this.orderToggle.bool;
     }
+  }
+
+  sort(title){
+    // title will be one of four choices: customer, order, pick up on and price
+    // use array.prototype.sort() to order the orders and array.prototype.reverse() to reverse ascending/descending order based on a boolean value.
+    // convert string to date https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript
+    console.log(title)
   }
 
   ngOnDestroy() {
