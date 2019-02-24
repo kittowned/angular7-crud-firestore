@@ -1,10 +1,11 @@
-import { HoursComponent } from './hours/hours.component';
-import { CustomerListComponent } from './customer-list/customer-list.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { OrderListComponent } from './order-list/order-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { HoursComponent } from './components/hours/hours.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/orders', pathMatch: 'full' },

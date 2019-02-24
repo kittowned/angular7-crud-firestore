@@ -1,28 +1,27 @@
-import { AngularFirestore } from '@angular/fire/firestore';
-import { ProductService } from './services/product.service';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-
-
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule, ModalModule } from 'ngx-bootstrap';
+import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { environment } from 'src/environments/environment';
-import { ProductListComponent } from './product-list/product-list.component';
-import { OrderListComponent } from './order-list/order-list.component';
-import { CustomerListComponent } from './customer-list/customer-list.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { OrderService } from './services/order.service';
-import { ZippyAccordionComponent } from './shared/zippy-accordion/zippy-accordion.component';
 
-import { BsDropdownModule } from 'ngx-bootstrap';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HoursComponent } from './hours/hours.component';
+import { AppComponent } from './app.component';
+import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { HoursComponent } from './components/hours/hours.component';
+import { OrderFormComponent } from './components/order-form/order-form.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { OrderService } from './services/order.service';
+import { ProductService } from './services/product.service';
+import { ZippyAccordionComponent } from './shared/zippy-accordion/zippy-accordion.component';
+import { ModalComponent } from './components/modal/modal.component';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -39,6 +38,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ZippyAccordionComponent,
     SidebarComponent,
     HoursComponent,
+    OrderFormComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ModalModule.forRoot(),
   ],
   providers: [
     ProductService,
@@ -58,6 +60,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [OrderFormComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
-import { OrderService } from './../services/order.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Order } from '../models/order';
-import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { OrderFormComponent } from '../order-form/order-form.component';
+import { Order } from '../../models/order';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-order-list',
@@ -10,6 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements OnInit,OnDestroy {
+  bsModalRef: BsModalRef;
 
   orders: Order[] = [];
 
@@ -21,7 +23,8 @@ export class OrderListComponent implements OnInit,OnDestroy {
 
   sortedArray = [];
 
-  constructor( private orderService : OrderService ) { }
+  constructor( private orderService : OrderService,
+    private modalService: BsModalService ) { }
 
   ngOnInit() {
     this.tableTitles = this.orderService.getTableTitles();
@@ -36,6 +39,15 @@ export class OrderListComponent implements OnInit,OnDestroy {
       })
       this.orderToggle = Object.create(this.orders[0]);
     })
+  }
+
+  openModalWithComponent() {
+    const initialState = {
+      list: [ 'Hello modal' ],
+      title : [ 'Welcome' ]
+    };
+    this.bsModalRef = this.modalService.show(OrderFormComponent, { class: 'modal-dialog-centered', initialState });
+    this.bsModalRef.content.closeBtnName = 'anos';
   }
 
   showHide(oId){
