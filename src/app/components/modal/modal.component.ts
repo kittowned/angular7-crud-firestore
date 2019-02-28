@@ -10,12 +10,12 @@ export class ModalComponent {
   bsModalRef: BsModalRef;
   constructor( private modalService: BsModalService ) { }
 
-  openModalWithComponent() {
-    const initialState = {
-      list: [ 'Hello modal' ],
-      title : [ 'Welcome' ]
-    };
-    this.bsModalRef = this.modalService.show(OrderFormComponent, { initialState });
-    this.bsModalRef.content.closeBtnName = 'anos';
-  }
+  // openModalWithComponent() {
+  //   // const initialState = {
+  //   //   list: [ 'Hello modal' ],
+  //   //   title : [ 'Welcome' ]
+  //   // };
+  //   // this.bsModalRef = this.modalService.show(OrderFormComponent, { initialState });
+  //   // this.bsModalRef.content.somethingNew = 'new title wow';
+  // }
 }

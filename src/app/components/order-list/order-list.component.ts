@@ -43,11 +43,10 @@ export class OrderListComponent implements OnInit,OnDestroy {
 
   openModalWithComponent() {
     const initialState = {
-      list: [ 'Hello modal' ],
-      title : [ 'Welcome' ]
+      title : 'New Order'
     };
-    this.bsModalRef = this.modalService.show(OrderFormComponent, { class: 'modal-dialog-centered', initialState });
-    this.bsModalRef.content.closeBtnName = 'anos';
+    this.bsModalRef = this.modalService.show(OrderFormComponent, { backdrop: false, class: 'modal-dialog-centered', initialState });
+    this.bsModalRef.content.somethingNew = ''; // This is how to insert content into template strings
   }
 
   showHide(oId){
@@ -63,7 +62,7 @@ export class OrderListComponent implements OnInit,OnDestroy {
   sort(title){
     // title will be one of four choices: customer, order, pick up on and price
     // use array.prototype.sort() to order the orders and array.prototype.reverse() to reverse ascending/descending order based on a boolean value.
-    // convert string to date https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript
+    // convert template strings date https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript
     console.log(title)
   }
 

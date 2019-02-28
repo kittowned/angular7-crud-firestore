@@ -1,15 +1,87 @@
-<!-- <div class="modal-header">
-    <h4 class="modal-title pull-left">{{title}}</h4>
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title}}</h4> <!-- title defined in order-list-component open modal method-->
     <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="modal-body">
-    <ul *ngIf="list.length">
-      <li *ngFor="let item of list">{{item}}</li>
-    </ul>
+</div>
+<form #orderForm="ngForm" (ngSubmit)="onFormSubmit(orderForm.value)">
+  <div class="modal-body form-group">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Customer name" aria-label="name">
+      </div>
+      
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Email" aria-label="email">
+      </div>
+
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Phone" aria-label="phone">
+      </div>
+      
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Address" aria-label="address">
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <input type="text"
+            name="date"
+            [(ngModel)]="bsValue"
+            class="form-control"
+            #dp="bsDatepicker"
+            bsDatepicker
+            [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
+            >
+        </div>
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <button type="button" class="btn btn-success" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen">Pick a date</button>
+        </div>
+      </div>
+      <div class="row form-group" >
+        <div  class="col-xs-12 col-12 col-md-6">
+          <select name="currentSelection" [(ngModel)]="current" class="form-control" id="desserts">
+            <option [selected]="1">Choose desserts</option>
+            <option *ngFor="let opt of recipes" [ngValue]="opt">{{opt.name}}</option>
+          </select>
+        </div>
+        <div class="col-xs-12 col-12 col-md-3">
+          <input type="text" class="form-control" name="currentSelectionQuantity" [(ngModel)]="currentQuantity" placeholder="Quantity" aria-label="quantity">
+        </div>
+        <button type="button" class="btn btn-success align-right" (click)="addDessert()">Add</button>
+        <div class="container">
+            <table *ngIf="selectedRecipes.length" class="table table-sm table-borderless">
+                <thead>
+                  <tr>
+                    <td>Dessert</td>
+                    <td>Quantity</td>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let rec of selectedRecipes">
+                    <td>{{rec.name}}</td>
+                    <td>{{rec.quantity}}</td>
+                    <td> 
+                      <a (click)="deleteDessert(rec.name)">
+                        <i class="fa fa-times"></i>
+                      </a>
+                  </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total: {{ totalPrice | currency:'USD':'symbol' }}</td>
+                  </tr>
+                </tfoot>
+              </table>
+        </div>
+
+        
+      </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
-  </div> -->
-  <div>im gay</div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+</form>

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { BsDropdownModule, ModalModule } from 'ngx-bootstrap';
+import { BsDropdownModule, ModalModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { environment } from 'src/environments/environment';
 
@@ -21,6 +21,7 @@ import { OrderService } from './services/order.service';
 import { ProductService } from './services/product.service';
 import { ZippyAccordionComponent } from './shared/zippy-accordion/zippy-accordion.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -50,6 +51,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserAnimationsModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    FormsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     ProductService,
