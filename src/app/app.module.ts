@@ -6,18 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BsDatepickerModule, BsDropdownModule, ModalModule } from 'ngx-bootstrap';
-import { PerfectScrollbarConfigInterface, PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { environment } from 'src/environments/environment';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomerListComponent } from './components/customer-list/customer-list.component';
-import { HoursComponent } from './components/hours/hours.component';
-import { ModalComponent } from './components/modal/modal.component';
-import { OrderFormComponent } from './components/order-form/order-form.component';
-import { OrderListComponent } from './components/order-list/order-list.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { OrderFormComponent } from './dashboard/components/order-form/order-form.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 
 
@@ -28,14 +24,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    OrderListComponent,
-    CustomerListComponent,
-    RecipeListComponent,
-    SidebarComponent,
-    HoursComponent,
-    OrderFormComponent,
-    ModalComponent,
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -49,6 +39,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     BsDatepickerModule.forRoot(),
     SharedModule.forRoot(),
+    DashboardModule
   ],
   providers: [
     AngularFirestore,

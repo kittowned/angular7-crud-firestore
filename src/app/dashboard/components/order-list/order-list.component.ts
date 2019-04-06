@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { OrderFormComponent } from '../order-form/order-form.component';
-import { Order } from '../../shared/models/order';
-import { OrderService } from '../../shared/services/order.service';
+import { Order } from '../../../shared/models/order';
+import { OrderService } from '../../../shared/services/order.service';
 
 @Component({
   selector: 'app-order-list',

@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { Recipe } from 'src/app/shared/models/recipe';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
 
-import { SelectedRecipe } from '../../shared/models/selectedRecipe';
+import { SelectedRecipe } from '../../../shared/models/selectedRecipe';
 
 @Component({
   selector: 'app-order-form',
