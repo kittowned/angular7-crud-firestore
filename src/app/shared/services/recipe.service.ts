@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Recipe } from '../shared/models/recipe';
+import { Recipe } from '../models/recipe';
 import { AngularFirestoreCollection, DocumentChangeAction, AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 

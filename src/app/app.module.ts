@@ -19,7 +19,6 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { OrderService } from './shared/services/order.service';
 import { ProductService } from './shared/services/product.service';
-import { ZippyAccordionComponent } from './shared/components/zippy-accordion/zippy-accordion.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormsModule } from '@angular/forms';
 
@@ -36,7 +35,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     OrderListComponent,
     CustomerListComponent,
     RecipeListComponent,
-    ZippyAccordionComponent,
     SidebarComponent,
     HoursComponent,
     OrderFormComponent,

@@ -1,6 +1,6 @@
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { Order } from '../shared/models/order';
+import { Order } from '../models/order';
 import { Observable } from 'rxjs';
 
 @Injectable({

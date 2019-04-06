@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap';
 import { Subscription } from 'rxjs';
 import { Recipe } from 'src/app/shared/models/recipe';
-import { RecipeService } from 'src/app/services/recipe.service';
+import { RecipeService } from 'src/app/shared/services/recipe.service';
 
 import { SelectedRecipe } from '../../shared/models/selectedRecipe';
 
