@@ -17,8 +17,8 @@ import { OrderListComponent } from './components/order-list/order-list.component
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { OrderService } from './services/order.service';
-import { ProductService } from './services/product.service';
+import { OrderService } from './shared/services/order.service';
+import { ProductService } from './shared/services/product.service';
 import { ZippyAccordionComponent } from './shared/components/zippy-accordion/zippy-accordion.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormsModule } from '@angular/forms';
