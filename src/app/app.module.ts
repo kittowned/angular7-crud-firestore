@@ -19,7 +19,7 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { OrderService } from './services/order.service';
 import { ProductService } from './services/product.service';
-import { ZippyAccordionComponent } from './shared/zippy-accordion/zippy-accordion.component';
+import { ZippyAccordionComponent } from './shared/components/zippy-accordion/zippy-accordion.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormsModule } from '@angular/forms';
 

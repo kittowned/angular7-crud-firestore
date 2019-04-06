@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { OrderFormComponent } from '../order-form/order-form.component';
-import { Order } from '../../models/order';
+import { Order } from '../../shared/models/order';
 import { OrderService } from '../../services/order.service';
 
 @Component({

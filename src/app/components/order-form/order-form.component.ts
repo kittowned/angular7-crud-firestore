@@ -2,10 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap';
 import { Subscription } from 'rxjs';
-import { Recipe } from 'src/app/models/recipe';
+import { Recipe } from 'src/app/shared/models/recipe';
 import { RecipeService } from 'src/app/services/recipe.service';
 
-import { SelectedRecipe } from './../../models/selectedRecipe';
+import { SelectedRecipe } from '../../shared/models/selectedRecipe';
 
 @Component({
   selector: 'app-order-form',
