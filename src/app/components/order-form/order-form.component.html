@@ -37,7 +37,7 @@
           <button type="button" class="btn btn-success" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen">Pick a date</button>
         </div>
       </div>
-      <div class="row form-group" >
+      <div class="row form-group mb-3">
         <div  class="col-xs-12 col-12 col-md-6">
           <select name="currentSelection" [(ngModel)]="current" class="form-control" id="desserts">
             <option [selected]="1">Choose desserts</option>
@@ -45,9 +45,24 @@
           </select>
         </div>
         <div class="col-xs-12 col-12 col-md-3">
-          <input type="text" class="form-control" name="currentSelectionQuantity" [(ngModel)]="currentQuantity" placeholder="Quantity" aria-label="quantity">
+          <input #quantity="ngModel" 
+              type="number" 
+              class="form-control" 
+              name="currentSelectionQuantity" 
+              [(ngModel)]="currentQuantity" 
+              placeholder="Quantity" 
+              aria-label="quantity-aria" 
+              required
+              [min]='0'>
         </div>
+
         <button type="button" class="btn btn-success align-right" (click)="addDessert()">Add</button>
+      </div>
+        <div class="container alert alert-danger" *ngIf="quantity.errors && (quantity.dirty || quantity.touched || form.submitted)">
+            <div *ngIf="quantity.errors.required">Quantity is required.</div>  
+            <div *ngIf="quantity.errors.min">Quantity should be 0 or higher.</div>  
+        </div>
+
         <div class="container">
             <table *ngIf="selectedRecipes.length" class="table table-sm table-borderless">
                 <thead>
@@ -77,9 +92,6 @@
                 </tfoot>
               </table>
         </div>
-
-        
-      </div>
   </div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-success">Submit</button>

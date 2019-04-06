@@ -19,7 +19,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
   selectedRecipes: SelectedRecipe[] = [];
   current: Recipe;
-  currentQuantity: string | number = '' ;
+  currentQuantity: string | number = 0 ;
   orderModel = {};
   subscription: Subscription;
   constructor( public bsModalRef: BsModalRef,
