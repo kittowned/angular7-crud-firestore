@@ -14,9 +14,11 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   declarations: [
+    DashboardComponent,
     ProductListComponent,
     OrderListComponent,
     CustomerListComponent,
@@ -24,7 +26,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     SidebarComponent,
     HoursComponent,
     OrderFormComponent,
-    ModalComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     FormsModule,
     BsDropdownModule,
     ModalModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+
   ],
   exports: [
     SidebarComponent
