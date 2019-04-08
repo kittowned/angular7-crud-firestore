@@ -11,10 +11,10 @@ import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OrderFormComponent } from './dashboard/components/order-form/order-form.component';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { OrderFormComponent } from './modules/dashboard/components/order-form/order-form.component';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { HomeComponent } from './home/home.component';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {

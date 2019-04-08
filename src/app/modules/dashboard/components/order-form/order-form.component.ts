@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap';
 import { Subscription } from 'rxjs';
-import { Recipe } from 'src/app/shared/models/recipe';
-import { RecipeService } from 'src/app/shared/services/recipe.service';
+import { Recipe } from 'src/app/modules/shared/models/recipe';
+import { RecipeService } from 'src/app/modules/shared/services/recipe.service';
 
 import { SelectedRecipe } from '../../../shared/models/selectedRecipe';
 
