@@ -1,3 +1,4 @@
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgModule } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +32,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
